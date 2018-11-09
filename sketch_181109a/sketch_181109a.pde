@@ -4,8 +4,8 @@ Serial port;
 
 ControlP5 cp5; //create ControlP5 object
 PFont font;
-String temp_c = "";
-String temp_f = "";
+String time_char = "";
+String time = "";
 String data = "";
 int index = 0;
 
@@ -51,8 +51,8 @@ void draw(){  //same as loop in arduino
   textFont(font);
   text("Text Control", 110, 30);  // ("text", x coordinate, y coordinat)
     
-  text(temp_c, 110, 350);  // ("text", x coordinate, y coordinat);
-  text(temp_f, 110, 380);  // ("text", x coordinate, y coordinat);
+  text(time_char, 110, 350);  // ("text", x coordinate, y coordinat);
+  text(time, 110, 380);  // ("text", x coordinate, y coordinat);
 }
 
 //lets add some functions to our buttons
@@ -76,8 +76,8 @@ void serialEvent (Serial port)
   
   // look for the comma between Celcius and Farenheit
   index = data.indexOf(",");
-  // fetch the C Temp
-  temp_c = data.substring(0, index);
-  // fetch the F Temp
-  temp_f = data.substring(index+1, data.length());
+  // fetch the Time char
+  time_char = data.substring(0, index);
+  // fetch the time from rtc
+  time = data.substring(index+1, data.length());
 }

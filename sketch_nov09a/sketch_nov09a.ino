@@ -5,48 +5,38 @@
 
 // Set the LCD address to 0x27 for a 16 chars and 2 line display
 LiquidCrystal_I2C lcd(0x27, 16, 2);
+//Setup rtc to pin number 2,3 and 4 
 DS1302 rtc(2, 3, 4);
 void setup()
 {
+  lcd.begin();                //Activate LCD
 
-  // Activate RTC module
-rtc.halt(false);
+  rtc.halt(false);           // Activate RTC module
   rtc.writeProtect(false);
 
-  Serial.begin(9600);    //start serial communication @9600 bps
+  Serial.begin(9600);       //start serial communication @9600 bps
   }
-  // initialize the LCD
-
-  // Turn on the blacklight and print a message.
-  
-  
-  
-byte  a = 11;
 
 void loop(){
-          Serial.print("Time"); // wysyła napis time
+  Serial.print("Time"); // wysyła napis time
   Serial.print(",");            //znak stopu 
-    Serial.print(rtc.getTimeStr());   //wysyła godzine 
+  Serial.print(rtc.getTimeStr());   //wysyła godzine 
   Serial.print("."); // znak stopu 
-  // int bytesSent = Serial.write(rtc.getTimeStr());
+  
  char val = Serial.read();
-
     if(val == 'r'){       //if r receive
-        lcd.begin();
-      lcd.backlight();
-  lcd.print("Hello, world!");
+        lcd.clear();
+        lcd.backlight();
+        lcd.print("Hello, world!");
       }
     if(val == 'b'){       //if b received
-        lcd.begin();
+      lcd.clear();
       lcd.backlight();
-  lcd.print("Hi!");
+      lcd.print("Hi!");
       }
       if(val == 'c'){       //if c received
-                lcd.begin();
+      lcd.clear();
       lcd.backlight();
-    lcd.print(rtc.getTimeStr());
-
-    
+      lcd.print(rtc.getTimeStr());
       }
-
 }
