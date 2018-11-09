@@ -28,19 +28,19 @@ void setup(){ //same as arduino program
   font = createFont("calibri light bold", 20);    // custom fonts for buttons and title
   
   cp5.addButton("hello")     //"red" is the name of button
-    .setPosition(600, 250)  //x and y coordinates of upper left corner of button
+    .setPosition(680, 250)  //x and y coordinates of upper left corner of button
     .setSize(120, 70)      //(width, height)
     .setFont(font)
   ;   
 
   cp5.addButton("hi")     //"yellow" is the name of button
-    .setPosition(600, 350)  //x and y coordinates of upper left corner of button
+    .setPosition(680, 350)  //x and y coordinates of upper left corner of button
     .setSize(120, 70)      //(width, height)
     .setFont(font)
   ;
 
   cp5.addButton("clk")     //"yellow" is the name of button
-    .setPosition(600, 450)  //x and y coordinates of upper left corner of button
+    .setPosition(680, 450)  //x and y coordinates of upper left corner of button
     .setSize(120, 70)      //(width, height)
     .setFont(font)
   ;
@@ -62,8 +62,8 @@ void draw(){  //same as loop in arduino
   text("Paweł Wangryn | E6C1S1", 1150, 780);
   text("Dokumentacja oraz Source Code:", 20, 750);
   text("|  https://github.com/Vangreen/Project_SW", 68, 780);
-  text(time_char, 630, 550);  // ("text", x coordinate, y coordinat);
-  text(time, 630, 580);  // ("text", x coordinate, y coordinat);
+  text(time_char, 650, 550);  // ("text", x coordinate, y coordinat);
+  text(time, 650, 580);  // ("text", x coordinate, y coordinat);
   fill(0,0,0);
 }
 
